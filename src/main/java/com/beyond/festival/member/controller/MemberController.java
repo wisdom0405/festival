@@ -98,7 +98,7 @@ public class MemberController {
             // 코드를 통해 rt검증
             claims = Jwts.parser().setSigningKey(secretKeyRt).parseClaimsJws(rt).getBody();
         }catch (Exception e){
-            return new ResponseEntity<>(new CommonErrorDto(HttpStatus.UNAUTHORIZED.value(),"invalid refresh token"), HttpStatus.UNAUTHORIZED)
+            return new ResponseEntity<>(new CommonErrorDto(HttpStatus.UNAUTHORIZED.value(),"invalid refresh token"), HttpStatus.UNAUTHORIZED);
         }
         String email = claims.getSubject();
         String role = claims.get("role").toString();
